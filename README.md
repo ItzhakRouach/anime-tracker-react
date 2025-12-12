@@ -1,16 +1,56 @@
-# React + Vite
+# 🦊 Anime Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, persistent anime tracking application built with React and Tailwind CSS. Users can search for top anime, add favorites to a personal list, and revisit their list across browser sessions.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* **🔍 Search Functionality:** Dynamic search for anime powered by the Jikan API.
+* **💾 Client-Side Persistence:** Anime list is saved locally using `localStorage` and persists across page refreshes.
+* **🛡️ Duplicate Prevention:** Logic to prevent users from adding the same anime multiple times.
+* **♻️ Component Reuse & Routing:** Clean navigation between Search (`/`) and My List (`/my-list`) using `react-router-dom`.
+* **🗑️ Remove Functionality:** Easily remove saved anime from the list.
 
-## React Compiler
+## 🛠️ Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Tool | Purpose |
+| :--- | :--- |
+| **React** | Front-end Library |
+| **react-router-dom** | Declarative Routing (v6) |
+| **Tailwind CSS** | Utility-First Styling |
+| **Jikan API** | Anime Data Source |
+| **localStorage** | Client-Side Data Persistence |
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Follow these steps to set up and run the project locally.
+
+### Prerequisites
+
+* Node.js (LTS version)
+* npm or yarn
+
+### Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone [YOUR_REPO_URL_HERE]
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd anime-tracker
+    ```
+3.  Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+### Running the App
+
+Run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
