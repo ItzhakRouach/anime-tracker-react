@@ -18,6 +18,7 @@ const App = () => {
   useDebounce(() => setDebounceSearchTerm(search), 500, [search]);
 
   //Use State to add animes to client list
+  const [myAnimeList, setMyAnimeList] = useState([]);
 
   // Fetch animes from public API and store it in topAnimes
   const fetchAnime = useEffectEvent(async (query) => {
@@ -39,6 +40,27 @@ const App = () => {
     fetchAnime(debounceSearchTerm);
   }, [debounceSearchTerm]);
 
+  function handleAddToList(anime) {
+    setMyAnimeList([
+      ...myAnimeList,
+      {
+        id: anime.mal_id,
+        image: anime.images.jpg.large_image_url,
+        title: anime.title,
+        score: anime.score,
+        year: anime.year,
+        rating: anime.rating,
+      },
+    ]);
+  }
+
+  function handleRemoveFromList(animeToRemove) {
+    const newAnimeList = myAnimeList.filter(
+      (anime) => anime.id !== animeToRemove.id
+    );
+    setMyAnimeList(newAnimeList);
+  }
+
   return (
     <>
       <div className="main">
@@ -48,10 +70,24 @@ const App = () => {
           <Route
             path="/"
             element={
-              <Home setSearch={setSearch} search={search} topAnime={topAnime} />
+              <Home
+                setSearch={setSearch}
+                search={search}
+                topAnime={topAnime}
+                handleAddToList={handleAddToList}
+                myAnimeList={myAnimeList}
+              />
             }
           />
-          <Route path="/my-list" element={<MyList />} />
+          <Route
+            path="/my-list"
+            element={
+              <MyList
+                myAnimeList={myAnimeList}
+                handleRemoveFromList={handleRemoveFromList}
+              />
+            }
+          />
         </Routes>
       </div>
     </>

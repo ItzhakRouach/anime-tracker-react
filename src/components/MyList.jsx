@@ -1,7 +1,12 @@
-export const MyList = () => {
+import { ListAnimeCard } from "./ListAnimeCard";
+
+export const MyList = ({ myAnimeList, handleRemoveFromList }) => {
   return (
     <div className="mt-4">
-      <h2>My Anime List</h2>
+      <ListAnimeCard
+        myAnimeList={myAnimeList}
+        handleRemoveFromList={handleRemoveFromList}
+      />
     </div>
   );
 };
