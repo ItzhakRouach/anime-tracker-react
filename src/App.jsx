@@ -1,10 +1,10 @@
 import { useState, useEffect, useEffectEvent } from "react";
 import { useDebounce } from "react-use";
 import { Home } from "./components/Home";
-import { AnimeCard } from "./components/AnimeCard";
-import { SearchAnime } from "./components/SearchAnime";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import "./App.css";
+import { MyList } from "./components/MyList";
+import { Navbar } from "./components/Navbar";
 
 const App = () => {
   // Use State to hold the animes from the API
@@ -16,6 +16,8 @@ const App = () => {
   // Use State to optimize the search engine
   const [debounceSearchTerm, setDebounceSearchTerm] = useState("");
   useDebounce(() => setDebounceSearchTerm(search), 500, [search]);
+
+  //Use State to add animes to client list
 
   // Fetch animes from public API and store it in topAnimes
   const fetchAnime = useEffectEvent(async (query) => {
@@ -40,6 +42,7 @@ const App = () => {
   return (
     <>
       <div className="main">
+        <Navbar />
         <h1 className="main-title">Anime Tracker</h1>
         <Routes>
           <Route
@@ -48,6 +51,7 @@ const App = () => {
               <Home setSearch={setSearch} search={search} topAnime={topAnime} />
             }
           />
+          <Route path="/my-list" element={<MyList />} />
         </Routes>
       </div>
     </>
