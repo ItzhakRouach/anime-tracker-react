@@ -10,7 +10,7 @@
 
 @layer components {
   .navbar-container {
-    @apply flex text-white text-3xl shadow-2xl justify-start gap-5 mt-5 ml-5 font-roboto;
+    @apply flex text-white text-lg md:text-3xl justify-start gap-5 font-roboto md:mt-5 md:ml-4;
   }
   .link-style {
     @apply decoration-indigo-500
