@@ -17,8 +17,20 @@ const App = () => {
   const [debounceSearchTerm, setDebounceSearchTerm] = useState("");
   useDebounce(() => setDebounceSearchTerm(search), 500, [search]);
 
-  //Use State to add animes to client list
-  const [myAnimeList, setMyAnimeList] = useState([]);
+  //Use State to add animes to client list , and loaded saved list from the local storage
+  const [myAnimeList, setMyAnimeList] = useState(() => {
+    const savedAnimeList = localStorage.getItem("MY_ANIME_LIST");
+    if (savedAnimeList) {
+      return JSON.parse(savedAnimeList);
+    }
+    return [];
+  });
+
+  // create Use Effect to track any changes on the anime list and save it one the client side
+  useEffect(() => {
+    const jsonAnimeList = JSON.stringify(myAnimeList);
+    localStorage.setItem("MY_ANIME_LIST", jsonAnimeList);
+  }, [myAnimeList]);
 
   // Fetch animes from public API and store it in topAnimes
   const fetchAnime = useEffectEvent(async (query) => {
@@ -41,17 +53,22 @@ const App = () => {
   }, [debounceSearchTerm]);
 
   function handleAddToList(anime) {
-    setMyAnimeList([
-      ...myAnimeList,
-      {
-        id: anime.mal_id,
-        image: anime.images.jpg.large_image_url,
-        title: anime.title,
-        score: anime.score,
-        year: anime.year,
-        rating: anime.rating,
-      },
-    ]);
+    const isDuplicated = myAnimeList.some(
+      (savedAnime) => savedAnime.id === anime.mal_id
+    );
+    if (!isDuplicated) {
+      setMyAnimeList((prevList) => [
+        ...prevList,
+        {
+          id: anime.mal_id,
+          image: anime.images.jpg.large_image_url,
+          title: anime.title,
+          score: anime.score,
+          year: anime.year,
+          rating: anime.rating,
+        },
+      ]);
+    }
   }
 
   function handleRemoveFromList(animeToRemove) {
