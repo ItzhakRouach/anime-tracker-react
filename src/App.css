@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@layer components {
+  .main {
+    @apply bg-gray-900  text-white text-center min-h-screen p-5;
+  }
+  .main-title {
+    @apply mt-10 text-4xl;
+  }
+}

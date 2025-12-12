@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer components {
+  .search-wrapper {
+    @apply mx-auto mt-5 bg-gray-700 py-2 px-3 rounded-lg max-w-md text-lg;
+  }
+
+  .search-field {
+    @apply w-full  text-left focus:outline-none;
+  }
+}
