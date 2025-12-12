@@ -1,7 +1,9 @@
 import { useState, useEffect, useEffectEvent } from "react";
 import { useDebounce } from "react-use";
+import { Home } from "./components/Home";
 import { AnimeCard } from "./components/AnimeCard";
 import { SearchAnime } from "./components/SearchAnime";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
@@ -39,8 +41,14 @@ const App = () => {
     <>
       <div className="main">
         <h1 className="main-title">Anime Tracker</h1>
-        <SearchAnime search={search} setSearch={setSearch} />
-        <AnimeCard topAnime={topAnime} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Home setSearch={setSearch} search={search} topAnime={topAnime} />
+            }
+          />
+        </Routes>
       </div>
     </>
   );
