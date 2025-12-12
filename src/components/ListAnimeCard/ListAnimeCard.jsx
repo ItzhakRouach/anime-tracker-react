@@ -1,4 +1,4 @@
-import "./AnimeCard.css";
+import "./ListAnimeCard.css";
 
 export const ListAnimeCard = ({ myAnimeList, handleRemoveFromList }) => {
   return (

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../../assets/fonts/Roboto/Roboto-Italic-VariableFont_wdth\,wght.ttf");
+}
+@import "tailwindcss";
+
+@theme {
+  --font-roboto: Roboto, "sans-serief";
+}
+
+@layer components {
+  .navbar-container {
+    @apply flex text-white text-3xl shadow-2xl justify-start gap-5 mt-5 ml-5 font-roboto;
+  }
+  .link-style {
+    @apply decoration-indigo-500
+          decoration-2
+          underline-offset-4
+          hover:underline
+          transition-all duration-300 ease-in-out;
+  }
+}

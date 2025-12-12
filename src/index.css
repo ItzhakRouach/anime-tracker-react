@@ -1,1 +1,10 @@
+@font-face {
+  font-family: Sekuya;
+  src: url("../assets/fonts/Sekuya-Regular.ttf");
+}
+
 @import "tailwindcss";
+
+@theme {
+  --font-sekuya: Sekuya, "sans-serief";
+}

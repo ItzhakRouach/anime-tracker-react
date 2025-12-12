@@ -1,5 +1,5 @@
-import { AnimeCard } from "./AnimeCard";
-import { SearchAnime } from "./SearchAnime";
+import { AnimeCard } from "../AnimeCard/AnimeCard";
+import { SearchAnime } from "../SearchAnime/SearchAnime";
 
 export const Home = ({
   search,
@@ -10,6 +10,7 @@ export const Home = ({
 }) => {
   return (
     <>
+      <h1 className="main-title">Anime Tracker</h1>
       <SearchAnime search={search} setSearch={setSearch} />
       <AnimeCard
         topAnime={topAnime}

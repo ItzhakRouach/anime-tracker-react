@@ -1,10 +1,10 @@
 import { useState, useEffect, useEffectEvent } from "react";
 import { useDebounce } from "react-use";
-import { Home } from "./components/Home";
-import { Route, Routes, Link } from "react-router-dom";
+import { Home } from "./components/Home/Home";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { MyList } from "./components/MyList";
-import { Navbar } from "./components/Navbar";
+import { MyList } from "./components/MyList/MyList";
+import { Navbar } from "./components/Navbar/Navbar";
 
 const App = () => {
   // Use State to hold the animes from the API
@@ -82,7 +82,6 @@ const App = () => {
     <>
       <div className="main">
         <Navbar />
-        <h1 className="main-title">Anime Tracker</h1>
         <Routes>
           <Route
             path="/"

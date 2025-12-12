@@ -1,9 +1,18 @@
+@font-face {
+  font-family: Sekuya;
+  src: url("./assets/fonts/Sekuya/Sekuya-Regular.ttf");
+}
 @import "tailwindcss";
+
+@theme {
+  --font-sekuya: Sekuya, "sans-serief";
+}
+
 @layer components {
   .main {
     @apply bg-gray-900  text-white text-center min-h-screen p-5;
   }
   .main-title {
-    @apply mt-10 text-4xl;
+    @apply mt-10 text-4xl font-sekuya text-cyan-400;
   }
 }

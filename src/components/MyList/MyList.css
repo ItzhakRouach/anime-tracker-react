@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Sekuya;
+  src: url("../../assets/fonts/Sekuya/Sekuya-Regular.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-sekuya: Sekuya, "sans-serief";
+}
+
+@layer components {
+  .header-wrapper {
+    @apply mt-4 font-sekuya flex justify-center gap-10 lg:flex-col;
+  }
+  .header-style {
+    @apply text-emerald-400 text-3xl;
+  }
+}
