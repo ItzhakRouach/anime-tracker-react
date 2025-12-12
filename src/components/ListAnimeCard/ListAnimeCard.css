@@ -22,6 +22,6 @@
   }
 
   .details {
-    @apply flex leading-1.5 justify-center md:justify-start md:leading-tight items-center  gap-4 text-xs text-gray-400;
+    @apply flex leading-relaxed   justify-center  md:justify-start md:leading-tight items-center  gap-4 text-xs text-gray-400;
   }
 }
